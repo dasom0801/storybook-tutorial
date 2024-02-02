@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
   return (
     <div className={`list-item ${state}`}>
@@ -40,4 +42,15 @@ const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) => {
     </div>
   );
 };
+
+Task.PropTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  }),
+  onArchiveTask: PropTypes.func,
+  onPinTask: PropTypes.func,
+};
+
 export default Task;
